@@ -1,35 +1,75 @@
-# Estructura del proyecto
-Las tecnologias que se utilizaron son react js y nest js con postman y sqlite3, LA COLECCION DE POSTMAN ESTA ANCLADA DIRECTAMENTE A LA CARPETA RAIZ DEL PROYECTO
-  - El proyecto se define por dos carpetas llamadas 
-    - Client
-    - Api
-  - Donde Albergan el Backend y el Frontend la estructura va asi:
-    /Client
-    -Src: Alberga todas las carpetas del Frontend
-    -Pages: Alberga 2 archivos JS llamados ConsultarArchivo.js y CrearAlumno.js donde albergan el codigo del Frontend (Interfaz)
-    -Services: Alberga 1 archivo llamado Api.js donde alberga la conexion del Frontend y el Backend
-    -App.js: Alberga las rutas de la interfaz y reutilizacion de componentes
+# Proyecto API & Client
 
-    /Api
-    -Src: Alberga todas las capetas del Backend
-    -Auth: Alberga un archivo llamado api-key.guard.ts donde se hace la autentificacion con Api key
-    -Students: Alberga dos carpetas llamadas DTO y Entities
-    -DTO: Contiene los dtos del create student y update student
-    -Entities: Contiene las entidades de la base de datos
+Este proyecto utiliza **React.js** y **NestJS**, junto con **Postman** y **SQLite3**. La colección de Postman está anclada directamente en la carpeta raíz del proyecto.
 
-### Instalacion
-    
+## 📂 Estructura del Proyecto
 
-Instala las dependencias y luego dependiendo de la plataforma ejecuta el comando correspondiente:
+El proyecto está dividido en dos carpetas principales:
 
-__Windows__:
-```sh api
-$ npm install 
-$ npm run start:dev
 ```
-```sh client
-$ npm install 
-$ npm run start
+📦 Proyecto
+├── 📂 Client (Frontend)
+│   ├── 📂 src
+│   │   ├── 📂 pages
+│   │   │   ├── ConsultarAlumno.js
+│   │   │   ├── CrearAlumno.js
+│   │   ├── 📂 services
+│   │   │   ├── Api.js
+│   │   ├── App.js
+├── 📂 Api (Backend)
+│   ├── 📂 src
+│   │   ├── 📂 auth
+│   │   │   ├── api-key.guard.ts
+│   │   ├── 📂 students
+│   │   │   ├── 📂 dto
+│   │   │   │   ├── create-student.dto.ts
+│   │   │   │   ├── update-student.dto.ts
+│   │   │   ├── 📂 entities
+│   │   │   │   ├── student.entity.ts
+```
 
+### 📌 Descripción de las carpetas
 
+#### 📁 Client (Frontend)
+- **`src/pages/`**: Contiene las páginas principales del frontend:
+  - `ConsultarAlumno.js`: Interfaz para consultar alumnos.
+  - `CrearAlumno.js`: Interfaz para crear un nuevo alumno.
+- **`src/services/Api.js`**: Archivo que maneja la conexión entre el frontend y el backend.
+- **`App.js`**: Configuración de rutas y reutilización de componentes.
 
+#### 📁 Api (Backend)
+- **`src/auth/`**: Contiene `api-key.guard.ts` para autenticación con API Key.
+- **`src/students/`**:
+  - 📂 `dto/` (Data Transfer Objects):
+    - `create-student.dto.ts` → Define la estructura para la creación de alumnos.
+    - `update-student.dto.ts` → Define la estructura para actualizar alumnos.
+  - 📂 `entities/`:
+    - `student.entity.ts` → Define la estructura de la base de datos.
+
+## 🛠 Instalación y Configuración
+
+### 1️⃣ Clonar el Repositorio
+```bash
+git clone https://github.com/tu_usuario/tu_repositorio.git
+cd tu_repositorio
+```
+
+### 2️⃣ Instalación de Dependencias
+Ejecuta los siguientes comandos en ambas carpetas (`Client` y `Api`):
+
+```bash
+npm install
+```
+
+### 3️⃣ Iniciar el Proyecto
+
+#### En **Windows**
+```bash
+# Iniciar el backend (NestJS)
+npm run start:dev
+
+# Iniciar el frontend (React.js)
+npm start
+```
+
+🚀 ¡Listo! Ahora puedes acceder a la aplicación desde tu navegador.
