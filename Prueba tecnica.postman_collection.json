@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "de3f8ac6-1c03-4427-be62-d80f9aa2f2f5",
+		"name": "Prueba tecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21023255"
+	},
+	"item": [
+		{
+			"name": "GetAllStudents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "123456789",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateStudent",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "123456789",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ernesto\",\r\n    \"birthDate\": \"2000-01-01T00:00:00.000Z\",\r\n    \"fatherName\": \"Luis\",\r\n    \"motherName\": \"Maria\",\r\n    \"grade\": 11,\r\n    \"section\": \"B\",\r\n    \"startDate\": \"2021-01-01T00:00:00.000Z\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/crear-alumno",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"crear-alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStudentsByGrade",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "123456789",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ernesto\",\r\n    \"birthDate\": \"2000-01-01T00:00:00.000Z\",\r\n    \"fatherName\": \"Luis\",\r\n    \"motherName\": \"Maria\",\r\n    \"grade\": 11,\r\n    \"section\": \"B\",\r\n    \"startDate\": \"2021-01-01T00:00:00.000Z\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/consultar-alumno/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"consultar-alumno",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

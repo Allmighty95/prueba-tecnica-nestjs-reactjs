@@ -20,6 +20,7 @@ export class StudentsController {
 
   @Post('crear-alumno')
   create(@Body() createStudentDto: CreateStudentDto) {
+    console.log('Datos recibidos del backend');
     return this.studentsService.create(createStudentDto);
   }
 

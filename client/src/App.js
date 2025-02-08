@@ -1,21 +1,30 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Container, Navbar, Nav } from "react-bootstrap";
+import CrearAlumno from "./pages/CrearAlumno";
+import ConsultarAlumno from "./pages/ConsultarAlumno";
 
-function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:3000")
-      .then((response) => response.text())
-      .then((data) => setMessage(data))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-
+const App = () => {
   return (
-    <div>
-      <h1>Frontend en React</h1>
-      <p>Respuesta del backend: {message}</p>
-    </div>
+    <Router>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">Gestión de Alumnos</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/crear-alumno">Crear Alumno</Nav.Link>
+            <Nav.Link href="/consultar-alumno">Consultar Alumnos</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
+      <Container className="mt-4">
+        <Routes>
+          <Route path="/crear-alumno" element={<CrearAlumno />} />
+          <Route path="/consultar-alumno" element={<ConsultarAlumno />} />
+        </Routes>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
