@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Form, Button, Alert } from "react-bootstrap";
 import { createStudent } from "../services/api";
 
-const CrearAlumno = () => {
+const CreateStudent = () => {
   const [formData, setFormData] = useState({
     name: "",
     birthDate: "",
@@ -14,7 +13,7 @@ const CrearAlumno = () => {
     startDate: "",
   });
 
-  const [mensaje, setMensaje] = useState(null);
+  const [message, setMessage] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,7 +23,7 @@ const CrearAlumno = () => {
     e.preventDefault();
     try {
       await createStudent(formData);
-      setMensaje({ type: "success", text: "Alumno creado correctamente" });
+      setMessage({ type: "success", text: "Alumno creado correctamente" });
       setFormData({
         name: "",
         birthDate: "",
@@ -35,7 +34,7 @@ const CrearAlumno = () => {
         startDate: "",
       });
     } catch (error) {
-      setMensaje({ type: "danger", text: "Error al crear alumno" });
+      setMessage({ type: "danger", text: "Error al crear alumno" });
       console.error(
         "Error en la petición:",
         error.response ? error.response.data : error.message
@@ -46,7 +45,7 @@ const CrearAlumno = () => {
   return (
     <div>
       <h2>Crear Alumno</h2>
-      {mensaje && <Alert variant={mensaje.type}>{mensaje.text}</Alert>}
+      {message && <Alert variant={message.type}>{message.text}</Alert>}
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Nombre</Form.Label>
@@ -132,4 +131,4 @@ const CrearAlumno = () => {
     </div>
   );
 };
-export default CrearAlumno;
+export default CreateStudent;

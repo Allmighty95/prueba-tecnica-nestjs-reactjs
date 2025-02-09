@@ -24,7 +24,7 @@ export class StudentsController {
     return this.studentsService.create(createStudentDto);
   }
 
-  @Get()
+  @Get('consultar-alumnos')
   findAll() {
     return this.studentsService.findAll();
   }

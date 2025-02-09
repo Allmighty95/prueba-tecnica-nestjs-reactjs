@@ -1,40 +1,59 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Form, Button, Table } from "react-bootstrap";
+import { Form, Button, Table, Alert } from "react-bootstrap";
 import { getStudentsByGrade } from "../services/api";
 
 const ConsultarAlumno = () => {
-  const [idGrado, setIdGrado] = useState("");
-  const [alumnos, setAlumnos] = useState([]);
+  const [idGrade, setGrade] = useState("");
+  const [students, setStudents] = useState(null);
+  const [message, setMessage] = useState(null);
 
-  const handleConsultar = async () => {
+  const handleSubmit = async () => {
     try {
-      const response = await getStudentsByGrade(idGrado);
-      setAlumnos(response);
+      setStudents(null);
+      setMessage(null);
+      if (!idGrade) {
+        setMessage({
+          type: "danger",
+          text: "Debe seleccionar un grado",
+        });
+        return;
+      }
+      const response = await getStudentsByGrade(idGrade);
+      setStudents(response);
     } catch (error) {
-      console.error("Error al consultar alumnos", error);
+      setMessage({
+        type: "danger",
+        text: "Error inesperado al obtener los alumnos",
+      });
     }
   };
 
   return (
     <div>
+      {message && (
+        <div className="mt-4">
+          <Alert variant={message.type}>{message.text}</Alert>
+        </div>
+      )}
       <h2>Consultar Alumnos</h2>
       <Form.Group>
         <Form.Label>Ingrese el Grado</Form.Label>
         <Form.Control
           type="text"
-          value={idGrado}
-          onChange={(e) => setIdGrado(e.target.value)}
+          value={idGrade}
+          onChange={(e) => setGrade(e.target.value)}
+          onSubmit={() => handleSubmit}
         />
       </Form.Group>
-      <Button className="mt-2" onClick={handleConsultar}>
+      <Button className="mt-2" onClick={handleSubmit}>
         Consultar
       </Button>
 
-      {alumnos.length > 0 && (
+      {students?.length > 0 ? (
         <Table striped bordered hover className="mt-3">
           <thead>
             <tr>
+              <th>ID</th>
               <th>Nombre</th>
               <th>Fecha de Nacimiento</th>
               <th>Padre</th>
@@ -45,7 +64,7 @@ const ConsultarAlumno = () => {
             </tr>
           </thead>
           <tbody>
-            {alumnos.map((alumno, index) => (
+            {students.map((alumno, index) => (
               <tr key={index}>
                 <td>{alumno.id}</td>
                 <td>{alumno.name}</td>
@@ -59,6 +78,12 @@ const ConsultarAlumno = () => {
             ))}
           </tbody>
         </Table>
+      ) : (
+        !!students && (
+          <div className="mt-2">
+            <p>No hay Alumnos en el grado seleccionado</p>
+          </div>
+        )
       )}
     </div>
   );

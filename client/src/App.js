@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import CrearAlumno from "./pages/CrearAlumno";
-import ConsultarAlumno from "./pages/ConsultarAlumno";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import SearchStudent from "./pages/SearchStudent";
+import CreateStudent from "./pages/CreateStudent";
+import Students from "./pages/Students";
 
 const App = () => {
   return (
@@ -19,8 +20,9 @@ const App = () => {
 
       <Container className="mt-4">
         <Routes>
-          <Route path="/crear-alumno" element={<CrearAlumno />} />
-          <Route path="/consultar-alumno" element={<ConsultarAlumno />} />
+          <Route path="/" element={<Students />} />
+          <Route path="/crear-alumno" element={<CreateStudent />} />
+          <Route path="/consultar-alumno" element={<SearchStudent />} />
         </Routes>
       </Container>
     </Router>
