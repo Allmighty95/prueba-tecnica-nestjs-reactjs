@@ -11,8 +11,9 @@ El proyecto está dividido en dos carpetas principales:
 ├── 📂 Client (Frontend)
 │   ├── 📂 src
 │   │   ├── 📂 pages
-│   │   │   ├── ConsultarAlumno.js
-│   │   │   ├── CrearAlumno.js
+│   │   │   ├── SearchStudent.js
+│   │   │   ├── Students.js
+│   │   │   ├── CreateStudent.js
 │   │   ├── 📂 services
 │   │   │   ├── Api.js
 │   │   ├── App.js
@@ -31,13 +32,16 @@ El proyecto está dividido en dos carpetas principales:
 ### 📌 Descripción de las carpetas
 
 #### 📁 Client (Frontend)
+
 - **`src/pages/`**: Contiene las páginas principales del frontend:
-  - `ConsultarAlumno.js`: Interfaz para consultar alumnos.
-  - `CrearAlumno.js`: Interfaz para crear un nuevo alumno.
+  - `Students.js`: Interfaz para mostrar alumnos existentes.
+  - `SearchStudent.js`: Interfaz para consultar alumnos.
+  - `CreateStudent.js`: Interfaz para crear un nuevo alumno.
 - **`src/services/Api.js`**: Archivo que maneja la conexión entre el frontend y el backend.
 - **`App.js`**: Configuración de rutas y reutilización de componentes.
 
 #### 📁 Api (Backend)
+
 - **`src/auth/`**: Contiene `api-key.guard.ts` para autenticación con API Key.
 - **`src/students/`**:
   - 📂 `dto/` (Data Transfer Objects):
@@ -49,12 +53,14 @@ El proyecto está dividido en dos carpetas principales:
 ## 🛠 Instalación y Configuración
 
 ### 1️⃣ Clonar el Repositorio
+
 ```bash
 git clone https://github.com/tu_usuario/tu_repositorio.git
 cd tu_repositorio
 ```
 
 ### 2️⃣ Instalación de Dependencias
+
 Ejecuta los siguientes comandos en ambas carpetas (`Client` y `Api`):
 
 ```bash
@@ -64,6 +70,7 @@ npm install
 ### 3️⃣ Iniciar el Proyecto
 
 #### En **Windows**
+
 ```bash
 # Iniciar el backend (NestJS)
 npm run start:dev

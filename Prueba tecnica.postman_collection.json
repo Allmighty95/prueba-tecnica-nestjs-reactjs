@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "de3f8ac6-1c03-4427-be62-d80f9aa2f2f5",
+		"_postman_id": "5c5cc27a-5f8a-40ef-9f28-55edddd80263",
 		"name": "Prueba tecnica",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21023255"
+		"_exporter_id": "11251765"
 	},
 	"item": [
 		{
@@ -18,14 +18,15 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/students",
+					"raw": "http://localhost:3001/students/consultar-alumnos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
-						"students"
+						"students",
+						"consultar-alumnos"
 					]
 				}
 			},
@@ -52,12 +53,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/students/crear-alumno",
+					"raw": "http://localhost:3001/students/crear-alumno",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"students",
 						"crear-alumno"
@@ -90,12 +91,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/students/consultar-alumno/10",
+					"raw": "http://localhost:3001/students/consultar-alumno/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"students",
 						"consultar-alumno",
